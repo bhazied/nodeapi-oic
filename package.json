@@ -7,12 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "npm run build && nodemon ./dist/app.js",
     "start": "npm run build && node ./dist/server.js",
-    "build": "rimraf ./dist && babel --presets es2015 -d dist/ . --ignore ./node_modules"
+    "build": "rimraf ./dist && babel --presets es2015 -d dist/ .  --copy-files --ignore ./node_modules",
+    "init-db": "./node_modules/.bin/sequelize init",
+    "migration": "./node_modules/.bin/sequelize db:migrate",
+    "undo-migration": "./node_modules/.bin/sequelize db:migrate:undo",
+    "data-seed": "./node_modules/.bin/sequelize db:seed:all",
+    "undo-seed": "./node_modules/.bin/sequelize db:seed:undo:all"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mysql2": "^1.6.4",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

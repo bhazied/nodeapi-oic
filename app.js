@@ -3,6 +3,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes/cars.route';
+//import db from './models';
 var app = express();
 
 //adding a body parser for url and body response as json
